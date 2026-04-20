@@ -1,0 +1,13 @@
+version: 1
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    port: 8000
+    healthcheck:
+      path: /health
+      interval: 30s
+    env:
+      DATABASE_URL: $DATABASE_URL
+      SECRET_KEY: $SECRET_KEY
